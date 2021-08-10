@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            color: #000;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <script>
+        var spans = document.querySelectorAll('span');
+        //用户输入时间总的毫秒数
+        var inputTime = +new Date('2021-4-11 16:50:00');
+        //先调用一次 防止页面刷新时空白
+        conutDown()
+            //每隔一秒调用一次，刷新计时
+        setInterval(conutDown, 1000);
+
+        function conutDown() {
+            var nowTime = +new Date(); //返回当前时间总的毫秒数
+
+            var times = (inputTime - nowTime) / 1000; //剩余时间总秒数  
+            var h = parseInt(times / 60 / 60 % 24); //时
+            h = h < 10 ? '0' + h : h;
+            spans[0].innerHTML = h;
+            var m = parseInt(times / 60 % 60); //分
+            m = m < 10 ? '0' + m : m;
+            spans[1].innerHTML = m;
+            var s = parseInt(times % 60); //秒
+            s = s < 10 ? '0' + s : s;
+            spans[2].innerHTML = s;
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 语法规范：window.setTimeout(调用函数，延时时间)
+        //window 可以省略
+        //时间单位毫秒 如果不写时间默认是0
+
+        //callback 回调函数方法
+        function callback() {
+            alert('爆炸了');
+        }
+        setTimeout(callback, 3000);
+        //直接使用方法
+        setTimeout(function() {
+            console.log('时间到了');
+        }, 2000);
+    </script>
+</body>
+
+</html>
