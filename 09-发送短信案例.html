@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="请输入">
+    <button>发送</button>
+    <script>
+        var ipt = document.querySelector('input');
+        var btn = document.querySelector('button');
+        var time = 3;
+        btn.addEventListener('click', function() {
+            btn.disabled = true;
+            ipt.value = '';
+            //var time = 3;
+            var timer = setInterval(function() {
+                if (time !== 0) {
+                    time--;
+                    btn.innerHTML = time + '秒';
+
+                } else {
+                    //复原按钮和发送
+                    btn.disabled = false;
+                    btn.innerHTML = '发送';
+                    //清除计时器，不然计时器一直循环
+                    clearInterval(timer);
+                    //全局变量需要重新赋值3 ，局部变量不需要
+                    time = 3;
+                }
+            }, 1000)
+        })
+    </script>
+</body>
+
+</html>

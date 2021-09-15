@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        //获取上一个网页参数
+        console.log(location.search);
+        var cs = location.search;
+        //去除？ substr('起始位置索引号'，截取几个字符);
+        //不写就默认截取到最后一个字符
+        var params = cs.substr(1);
+        console.log(params);
+        //利用=把字符分割成数组 split('=');
+        var arr = params.split('=');
+        console.log(arr); //['uname','输入的数据']
+        var div = document.querySelector('div');
+        div.innerHTML = '欢迎' + arr[1] + '来到爱情海';
+    </script>
+</body>
+
+</html>
